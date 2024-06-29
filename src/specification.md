@@ -11,7 +11,7 @@ foundation for resolving actions and conflicts within a game.
 The NDR dice roll is
 
 <div style="font-size: 400%">
-2D6 - 2D6
+2d6 - 2d6
 </div>
 
 When rolling physical dice, this is rolled by rolling two six sided dice of one
@@ -20,7 +20,7 @@ recommended colors are black dice for the positive, and red dice for the
 negative.
 
 When using digital tools to roll dice, substracting dice might not be available
-as a feature. In that case the alternative form of **4D6 - 14** should be used
+as a feature. In that case the alternative form of **4d6 - 14** should be used
 instead. This produces the exact same distribution.
 
 ## Properties

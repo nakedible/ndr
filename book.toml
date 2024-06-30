@@ -3,4 +3,7 @@ authors = ["Nuutti Kotivuori"]
 language = "en"
 multilingual = false
 src = "src"
-title = "NDR: Natural Die Roll"
+title = "NDR SRD: Natural Die Roll System Reference Document"
+
+[output.html]
+mathjax-support = true

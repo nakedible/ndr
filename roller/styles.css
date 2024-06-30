@@ -1,6 +1,6 @@
 html,
 body {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
@@ -9,7 +9,6 @@ body {
   margin: 0;
   padding: 0;
   position: relative;
-  text-align: center;
 }
 
 #dice-box {
@@ -19,22 +18,188 @@ body {
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  background-image: url(/public/assets/woodgrain2.jpg);
-  background-size: cover;
+  background-image: url('felt-background.svg');
+  background-size: 200px 200px;
+  display: flex;
+  flex-direction: column;
 }
 
-#dice-box canvas {
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-h1,
-button#rollem {
-  position: relative;
+.content {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 2.5rem;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
 }
 
 button#rollem {
   cursor: pointer;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  margin-right: 10px;
+}
+
+button#rollem:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button#rollem:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+label[for="modifier"] {
+  color: white;
+  margin-right: 5px;
+  font-size: 1rem;
+}
+
+#modifier {
+  font-size: 1rem;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+  color: #333;
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-label {
+  color: white;
+  margin-right: 10px;
+}
+
+.toggle-input {
+  display: none;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: background-color 0.3s;
+  margin-right: 20px;
+}
+
+.toggle-switch::before {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  top: 4px;
+  left: 4px;
+  background-color: white;
+  transition: transform 0.3s;
+}
+
+.toggle-input:checked + .toggle-switch {
+  background-color: #4CAF50;
+}
+
+.toggle-input:checked + .toggle-switch::before {
+  transform: translateX(26px);
+}
+
+.roll-log {
+  position: absolute;
+  top: 100px;
+  right: 20px;
+  width: 200px;
+  max-height: calc(100% - 120px);
+  overflow-y: auto;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 3;
+  display: none;
+}
+
+.roll-log.visible {
+  display: block;
+}
+
+#log-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#log-list li {
+  font-size: 1rem;
+  padding: 10px;
+  color: #333;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease;
+  display: grid;
+  grid-template-columns: 20px 15px 20px 15px 20px 15px 30px 20px;
+  align-items: center;
+  font-weight: bold;
+}
+
+#log-list li:last-child {
+  border-bottom: none;
+}
+
+#log-list li:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.pos, .neg, .mod, .result {
+  justify-self: end;
+}
+
+.operator {
+  justify-self: center;
+}
+
+.code {
+  padding-left: 5px;
+  justify-self: start;
+}
+
+.pos { color: black; }
+.neg { color: red; }
+.mod.positive { color: green; }
+.mod.negative { color: red; }
+.result.positive { color: green; }
+.result.negative { color: red; }
+
+.code .c { color: green; }
+.code .f { color: red; }
+.code .n { color: #A0A0A0; }
+
+#dice-box canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }

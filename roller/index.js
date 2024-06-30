@@ -1,8 +1,8 @@
-import DiceBox from "https://unpkg.com/@3d-dice/dice-box@1.0.8/dist/dice-box.es.min.js";
+import DiceBox from "https://unpkg.com/@3d-dice/dice-box@1.0.14/dist/dice-box.es.min.js";
 
 let Box = new DiceBox("#dice-box", {
     assetPath: "assets/",
-    origin: "https://unpkg.com/@3d-dice/dice-box@1.0.8/dist/",
+    origin: "https://unpkg.com/@3d-dice/dice-box@1.0.14/dist/",
     theme: "default",
     themeColor: "#feea03",
     offscreen: true,
